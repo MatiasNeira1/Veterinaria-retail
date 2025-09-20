@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Panel de Administración - Cachupin</title>
+  <link rel="stylesheet" href="../css/admin.css" />
+  <script src="../js/admin/admin.js" defer></script>
+</head> 
+<body>
+
+  <header class="top-bar">
+    <div class="left-section">
+      <h1>Admin Cachupin</h1>
+    </div>
+    <div class="right-section">
+      <span class="admin-user">👤 Administrador</span>
+      <button onclick="logout()" class="btn-logout">Cerrar sesión</button>
+    </div>
+  </header>
+
+  <div class="admin-container">
+    
+    <!-- Menú lateral -->
+    <nav class="admin-sidebar">
+      <ul>
+        <li><a href="#dashboard">📊 Dashboard</a></li>
+        <li><a href="#productos">📦 Gestión de Productos</a></li>
+        <li><a href="#usuarios">👥 Gestión de Usuarios</a></li>
+        <li><a href="#ordenes">🧾 Pedidos</a></li>
+        <li><a href="#planes">📃 Planes</a></li>
+        <li><a href="#publicaciones">📝 Publicaciones</a></li>
+        <li><a href="#configuracion">⚙️ Configuración</a></li>
+      </ul>
+    </nav>
+
+    <!-- Contenido principal -->
+    <main class="admin-main">
+
+      <section id="dashboard">
+        <h2>📊 Dashboard</h2>
+        <p>Bienvenido al panel de administración. Aquí puedes controlar el contenido del sitio.</p>
+        <div class="dashboard-cards">
+          <div class="card" id="card-productos">Productos: <strong>0</strong></div>
+          <div class="card" id="card-usuarios">Usuarios: <strong>0</strong></div>
+          <div class="card" id="card-pedidos">Pedidos: <strong>0</strong></div>
+          <div class="card" id="card-planes">Planes activos: <strong>0</strong></div>
+        </div>
+      </section>
+
+      <section id="productos">
+  <h2>📦 Gestión de Productos</h2>    
+  <button class="btn-agregar">➕ Agregar Producto</button>
+  <div class="table-container">
+    <table>
+      <thead>
+        <tr>
+          <th>ID</th>
+          <th>Nombre</th>
+          <th>Categoría</th>
+          <th>Precio</th>
+          <th>Stock</th>
+          <th>Acciones</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>001</td>
+          <td>Correa para Gato</td>
+          <td>Accesorios</td>
+          <td>$5.000</td>
+          <td>25</td>
+          <td><button>Editar</button> <button>Eliminar</button></td>
+        </tr>
+        <!-- Más productos aquí -->
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<section id="usuarios">
+  <h2>👥 Gestión de Usuarios</h2>
+  <button class="btn-agregar">➕ Agregar Usuario</button>
+  <div class="table-container">
+    <table>
+      <thead>
+        <tr>
+          <th>ID</th>
+          <th>Nombre</th>
+          <th>Email</th>
+          <th>Rol</th>
+          <th>Acciones</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>u001</td>
+          <td>Juan Pérez</td>
+          <td>juan@example.com</td>
+          <td>Administrador</td>
+          <td><button>Editar</button> <button>Eliminar</button></td>
+        </tr>
+        <!-- Más usuarios aquí -->
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<section id="ordenes">
+  <h2>🧾 Pedidos</h2>
+  <div class="table-container">
+    <table>
+      <thead>
+        <tr>
+          <th>ID Pedido</th>
+          <th>Cliente</th>
+          <th>Fecha</th>
+          <th>Estado</th>
+          <th>Total</th>
+          <th>Acciones</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>p001</td>
+          <td>María López</td>
+          <td>2025-09-15</td>
+          <td>En proceso</td>
+          <td>$20.000</td>
+          <td><button>Ver</button> <button>Cancelar</button></td>
+        </tr>
+        <!-- Más pedidos aquí -->
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<section id="planes">
+  <h2>📃 Planes</h2>
+  <button class="btn-agregar">➕ Agregar Plan</button>
+  <div class="table-container">
+    <table>
+      <thead>
+        <tr>
+          <th>ID Plan</th>
+          <th>Nombre</th>
+          <th>Precio</th>
+          <th>Duración</th>
+          <th>Acciones</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>pl001</td>
+          <td>Plan Básico</td>
+          <td>$25.000</td>
+          <td>1 mes</td>
+          <td><button>Editar</button> <button>Eliminar</button></td>
+        </tr>
+        <!-- Más planes aquí -->
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<section id="publicaciones">
+  <h2>📝 Publicaciones</h2>
+  <button class="btn-agregar">➕ Agregar Publicación</button>
+  <div class="table-container">
+    <table>
+      <thead>
+        <tr>
+          <th>ID Publicación</th>
+          <th>Título</th>
+          <th>Fecha</th>
+          <th>Autor</th>
+          <th>Acciones</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>pub001</td>
+          <td>Consejos para el cuidado del gato</td>
+          <td>2025-09-10</td>
+          <td>Admin</td>
+          <td><button>Editar</button> <button>Eliminar</button></td>
+        </tr>
+        <!-- Más publicaciones aquí -->
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<section id="configuracion">
+  <h2>⚙️ Configuración</h2>
+  <p>Aquí puedes ajustar las configuraciones del sistema.</p>
+  <form id="config-form">
+    <label for="siteName">Nombre del sitio:</label>
+    <input type="text" id="siteName" name="siteName" value="Cachupin" />
+
+    <label for="emailAdmin">Email administrador:</label>
+    <input type="email" id="emailAdmin" name="emailAdmin" value="admin@cachupin.com" />
+
+    <label for="notifications">Notificaciones activadas:</label>
+    <input type="checkbox" id="notifications" name="notifications" checked />
+
+    <button type="submit" class="btn-guardar">Guardar configuración</button>
+  </form>
+</section>
+
+    </main>
+  </div>
+
+  <footer class="footer">
+    <p>&copy; 2025 Cachupin Admin. Todos los derechos reservados.</p>
+  </footer>
+
+</body>
+</html>

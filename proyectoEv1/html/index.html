@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Barra Lateral Expandible</title>
+    <link rel="stylesheet" href="../css/menu.css" />
+    <script src="../js/menu.js"></script>
+</head>
+<body>
+  <header class="top-bar">
+    <div class="left-section">
+      <h1 id="cabecera">Cachupin</h1>
+      <button class="open-btn" onclick="openNav()" aria-label="Abrir menú">
+        ☰ Menú
+      </button>
+    </div>
+       
+    <form id="search-bar" action="#" method="GET" role="search">
+      <input type="text" name="q" placeholder="Buscar en cachupin.com" />
+      <button type="submit" aria-label="Buscar">🔍</button>
+    </form>
+        <a href="agendar.html" class="btn-agendar">
+          Agenda Online 🐾
+        </a>
+    <div id="top-right-button">
+      <button id="login" class="btn-login" onclick="location.href='login.html'">
+        Iniciar sesion  
+      </button>
+    </div>
+  </header>
+
+  <div id="overlay" onclick="closeNav()"></div>
+
+  <div id="sidebar" class="sidebar">
+    <button class="close-btn" onclick="closeNav()">×</button>
+    <a href="login.html">Productos</a>
+    <a href="login.html">Nosotros</a>
+    <a href="login.html">Planes</a>
+   
+    
+  </div>
+
+  <div class="carrusel">
+    <a href="producto.html">
+        <img src="../imagenes/productos/CorreaGato.jpg" alt="Foto 1" />
+    </a>
+    <a href="producto.html">
+        <img src="../imagenes/productos/ComidaGato.webp" alt="Foto 2" />
+    </a>
+    <a href="producto.html">
+        <img src="../imagenes/productos/JugueteGato.webp" alt="Foto 3" />
+    </a>
+  </div>
+
+  <!-- Pie de página agregado -->
+<footer class="footer">
+  <div class="footer-content">
+    <div class="subscribe">
+      <input type="email" placeholder="Ingresa tu correo electrónico" />
+      <button type="submit">SUSCRIBIRSE</button>
+    </div>
+    
+    <div class="footer-links">
+      <div class="section">
+        <h3>NOSOTROS</h3>
+        <a href="terminos.html">Términos y Condiciones</a>
+      </div>
+      
+      <div class="section">
+        <h3>SOPORTE</h3>
+        <a href="preguntas-frecuentes.html">Preguntas Frecuentes</a>
+        <a href="postventa.html">Solicitud Post Venta</a>
+        <a href="contactanos.html">Contáctanos</a>
+      </div>
+
+      <div class="section">
+        <h3>MI CUENTA</h3>
+        <a href="entrar-cuenta.html">Entrar a Mi Cuenta</a>
+        <a href="registrarse.html">Quiero Registrarme</a>
+        <a href="ingresar-cliente.html">Ya soy cliente y quiero ingresar</a>
+      </div>
+
+      <div class="section">
+        <h3>CONTACTO</h3>
+        <p>Ubicación: Bodega chiriguito chatarra, Bodega 29, isla 1</p>
+        <p>+56 9 1234 5678</p>
+        <p>+56 9 5678 1234</p>
+        <p>+56 9 5612 7834</p>
+        <p><a href="mailto:contacto.web@diprovet.cl">contacto.web@duoc.cl</a></p>
+      </div>
+    </div>
+
+    <div class="social-icons">
+      <!-- Twitter -->
+      <a href="https://twitter.com" target="_blank">
+        <div class="Icons_hoverIconContainer__S8wyn">
+          <img src="https://storage.googleapis.com/home.ripley.cl/rdex/footercomponent/social_network/twitter_dark.svg" alt="Twitter" width="25" height="25">
+        </div>
+      </a>
+      <!-- Facebook -->
+      <a href="https://www.facebook.com" target="_blank">
+        <div class="Icons_hoverIconContainer__S8wyn">
+          <img src="https://storage.googleapis.com/home.ripley.cl/rdex/footercomponent/social_network/facebook_dark.svg" alt="Facebook" width="25" height="25">
+        </div>
+      </a>
+      <!-- YouTube -->
+      <a href="https://www.youtube.com" target="_blank">
+        <div class="Icons_hoverIconContainer__S8wyn">
+          <img src="https://storage.googleapis.com/home.ripley.cl/rdex/footercomponent/social_network/youtube_dark.svg" alt="YouTube" width="25" height="25">
+        </div>
+      </a>
+    </div>
+     
+  </div>
+
+  <p>&copy; 2025 Cachupin, todos los derechos reservados</p>
+</footer>
+
+
+</body>
+</html>

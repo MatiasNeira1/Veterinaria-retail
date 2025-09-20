@@ -1,79 +1,119 @@
 // Función para manejar el inicio de sesión
 function login(event) {
-    event.preventDefault(); // Prevenir el envío del formulario y recarga de la página
+    event.preventDefault(); 
 
-    // Obtener los valores del formulario
-    var correo = document.getElementById("email").value;
-    var password = document.getElementById("password").value;
+    // Obtener valores del formulario
+    var correo = document.getElementById("email").value.trim();
+    var password = document.getElementById("password").value.trim();
 
-    // Validación básica para el correo
+    // Validaciones básicas
     if (!correo.includes("@")) {
         alert("El correo debe contener '@'");
-        return; // Detener ejecución si el correo no es válido
+        return;
     }
 
-    // Validación básica para la contraseña
-    if (password.trim() === "") {
+    if (password === "") {
         alert("La contraseña no puede estar vacía.");
-        return; 
+        return;
     }
 
-    console.log("Correo y contraseña válidos");
+    // Verificar si es admin
+    if (correo === "admin@cachupin.cl" && password === "admin") {
+        mostrarNotificacion("Has iniciado sesión como administrador");
 
+        // Guardar en localStorage que es admin
+        localStorage.setItem("isAdmin", "true");
+
+        setTimeout(function() {
+            window.location.href = "admin.html";
+        }, 1500);
+        return;
+    }
+
+    // Verificar en usuarios registrados (localStorage)
+    let registros = JSON.parse(localStorage.getItem("usuarios")) || [];
+    let usuarioValido = registros.find(usuario => usuario.correo === correo && usuario.password === password);
+
+    if (usuarioValido) {
+        mostrarNotificacion("Has iniciado sesión correctamente");
+
+        // Guardar que NO es admin
+        localStorage.setItem("isAdmin", "false");
+
+        setTimeout(function() {
+            window.location.href = "Menu.html";
+        }, 1500);
+    } else {
+        alert("Correo o contraseña incorrectos. Intenta nuevamente.");
+    }
+}
+
+// Función para mostrar notificaciones del navegador
+function mostrarNotificacion(mensaje) {
     if ("Notification" in window) {
         if (Notification.permission === "granted") {
-            new Notification("Haz iniciado sesión");
+            new Notification(mensaje);
         } else if (Notification.permission !== "denied") {
             Notification.requestPermission().then(function(permission) {
                 if (permission === "granted") {
-                    new Notification("Haz iniciado sesión");
+                    new Notification(mensaje);
                 }
             });
         }
     }
-
-   
-    setTimeout(function() {
-        window.location.href = "Menu.html"; 
-    }, 1500); 
 }
-
 let registros = JSON.parse(localStorage.getItem("usuarios")) || [];
 
-
 function register(event) {
-    event.preventDefault(); 
+    event.preventDefault();
 
-    var name = document.getElementById("names").value;
-    var last_names = document.getElementById("last_names").value;
-    var number = document.getElementById("number").value;
-    var correo = document.getElementById("email").value;
-    var password = document.getElementById("password").value;
+    // Obtener los valores del formulario
+    const name = document.getElementById("names").value.trim();
+    const lastNames = document.getElementById("last_names").value.trim();
+    const number = document.getElementById("number").value.trim();
+    const correo = document.getElementById("email").value.trim();
+    const password = document.getElementById("password").value.trim();
 
-    if (!name || !last_names || !number || !correo || !password) {
-        alert("No pueden haber campos vacíos");
+    // Validación de campos vacíos
+    if (!name || !lastNames || !number || !correo || !password) {
+        alert("Todos los campos son obligatorios.");
         return;
     }
 
-    if (!correo.includes('@')) {
-        alert("El correo debe contener '@'");
-        return; 
+    // Validar formato de correo
+    if (!correo.includes("@")) {
+        alert("El correo debe contener '@'.");
+        return;
     }
 
-    let RegistroNuevo = {
+    // Validar si el correo ya está registrado
+    const existe = registros.some(user => user.correo === correo);
+    if (existe) {
+        alert("Este correo ya está registrado.");
+        return;
+    }
+
+    // Crear el objeto de usuario
+    const nuevoUsuario = {
         name: name,
-        last_names: last_names,
+        lastNames: lastNames,
         number: number,
         correo: correo,
         password: password
-    }
+    };
 
-    registros.push(RegistroNuevo);
-
+    // Guardar en el array y en localStorage
+    registros.push(nuevoUsuario);
     localStorage.setItem("usuarios", JSON.stringify(registros));
-    
+
+    // Resetear el formulario
     document.getElementById("form_register").reset();
 
-    window.location.href = "Menu.html";
-    console.log("Registro exitoso, redirigiendo...");
+    // Confirmar y redirigir
+    alert("Registro exitoso. Ahora puedes iniciar sesión.");
+    window.location.href = "login.html";
 }
+
+
+
+
