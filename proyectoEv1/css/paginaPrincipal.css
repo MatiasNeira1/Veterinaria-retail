@@ -1,0 +1,15 @@
+body {
+    background: linear-gradient(to bottom, #407bd4, #1976d2, #42a5f5, #90caf9);
+    height: 100vh;
+    margin: 0;
+}
+h1 {
+    text-align: center;
+}
+.container {
+    border: solid rgb(111, 219, 233);
+}
+label {
+    display: inline-block;
+    width: 75px;
+}

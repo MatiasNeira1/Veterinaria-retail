@@ -1,0 +1,97 @@
+
+    body {
+      font-family: 'Montserrat', sans-serif;
+      background: linear-gradient(150deg, #145214, #1e6e2c);
+      margin: 0;
+      padding: 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+    }
+
+    .form-container {
+      background-color: #fff;
+      padding: 40px;
+      border-radius: 15px;
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
+      width: 100%;
+      max-width: 500px;
+      box-sizing: border-box;
+    }
+
+    h1 {
+      text-align: center;
+      color: #145214;
+      margin-bottom: 30px;
+    }
+
+    label {
+      display: block;
+      margin-bottom: 8px;
+      font-weight: 600;
+      color: #333;
+    }
+
+    input[type="text"],
+    input[type="number"],
+    select {
+      width: 100%;
+      padding: 12px;
+      margin-bottom: 20px;
+      border-radius: 8px;
+      border: 1px solid #ccc;
+      font-size: 15px;
+    }
+
+    .resumen {
+      background-color: #f7f7f7;
+      padding: 15px;
+      border-radius: 8px;
+      margin-bottom: 25px;
+      color: #333;
+    }
+
+    .metodo-pago {
+      margin-bottom: 25px;
+    }
+
+    .metodo-pago label {
+      margin-bottom: 10px;
+      display: block;
+    }
+
+    .metodo-pago input[type="radio"] {
+      margin-right: 10px;
+    }
+
+    button {
+      width: 100%;
+      padding: 14px;
+      background-color: #145214;
+      color: white;
+      font-size: 16px;
+      font-weight: 600;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+
+    button:hover {
+      background-color: #0f3f10;
+    }
+
+    .volver {
+      text-align: center;
+      margin-top: 20px;
+    }
+
+    .volver a {
+      color: #145214;
+      text-decoration: none;
+    }
+
+    .volver a:hover {
+      text-decoration: underline;
+    }

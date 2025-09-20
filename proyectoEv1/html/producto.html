@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>productos</title>
+    <link rel="stylesheet" href="../css/producto.css">
+    <script src="../js/productos.js"></script>
+    <link rel="stylesheet" href="../css/menu.css" />
+    <script src="../js/menu.js"></script>
+    
+</head>
+<body>
+    <nav>
+        <!--Aqui va la barra de navegacion(Maximo)-->
+    <header class="top-bar">
+        <div class="left-section">
+            <h1 id="cabecera">Cachupin</h1>
+            <button class="open-btn" onclick="openNav()" aria-label="Abrir menú">
+            ☰
+            </button>
+        </div>
+    
+        <form id="search-bar" action="#" method="GET" role="search">
+            <input type="text" name="q" placeholder="Buscar en cachupin.com" />
+            <button type="submit" aria-label="Buscar">🔍</button>
+        </form>
+    
+        <div id="top-right-button">
+            <button id="total-carrito" class="btn-productos" onclick="location.href='VerCarrito.html'">
+                🛒
+            </button>
+        </div>  
+
+        </header>
+            
+    </nav>
+    <div><div id="overlay" onclick="closeNav()"></div>
+
+    <div id="sidebar" class="sidebar">
+      <button class="close-btn" onclick="closeNav()">×</button>
+      <a href="Menu.html">Menu</a>
+      <a href="nosotros.html">Nosotros</a>
+    </div>  </div>
+    <div class="titulo">
+      <h1>Productos</h1>
+    </div>
+    <!-- Productos.html -->
+<div class="productos">
+  <img src="../imagenes/CorreaGato.jpg" alt="imagen referencial">
+  <p>Correa gato</p>
+  <p>$5.990</p>
+  <button onclick="añadirAlCarrito('Correa para gato', 5990)">Añadir al carrito</button>
+</div>
+
+<div class="productos">
+  <img src="../imagenes/ComidaGato.webp" alt="imagen referencial">
+  <p>Comida gato</p>
+  <p>$10.990</p>
+  <button onclick="añadirAlCarrito('Comida húmeda', 10990)">Añadir al carrito</button>
+</div>
+
+<div class="productos">
+  <img src="../imagenes/CajaArenaGato.webp" alt="imagen referencial">
+  <p>Caja arena</p>
+  <p>$20.990</p>
+  <button onclick="añadirAlCarrito('Caja de arena para gato', 20990)">Añadir al carrito</button>
+</div>
+
+<div class="productos">
+  <img src="../imagenes/JugueteGato.webp" alt="imagen referencial">
+  <p>Juguete</p>
+  <p>$12.990</p>
+  <button onclick="añadirAlCarrito('Juguete interactivo', 12990)">Añadir al carrito</button>
+</div>
+
+    
+</body>
+</html>

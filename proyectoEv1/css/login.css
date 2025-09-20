@@ -1,0 +1,125 @@
+/* Estilos globales */
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Montserrat', sans-serif;
+    background: linear-gradient(150deg, #145214, #5c8063);
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Contenedor principal del formulario */
+.formulario {
+    background-color: white;
+    padding: 40px 30px;
+    border-radius: 15px;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    max-width: 400px;
+    text-align: center;
+}
+
+/* Título */
+.formulario h1 {
+    font-size: 26px;
+    color: #333;
+    margin-bottom: 25px;
+}
+
+/* Estructura del formulario */
+.formulario form {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+/* Campo con floating label */
+.usuario {
+    position: relative;
+    width: 100%;
+}
+
+.usuario input {
+    width: 100%;
+    padding: 14px 12px;
+    font-size: 15px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    outline: none;
+    background-color: #fdfdfd;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.usuario label {
+    position: absolute;
+    top: 50%;
+    left: 12px;
+    transform: translateY(-50%);
+    font-size: 15px;
+    color: #8a8a8a;
+    pointer-events: none;
+    transition: all 0.3s ease;
+    background-color: white;
+    padding: 0 4px;
+}
+
+.usuario input:focus {
+    border-color: #58D68D;
+    box-shadow: 0 0 6px rgba(88, 214, 141, 0.4);
+}
+
+.usuario input:focus + label,
+.usuario input:not(:placeholder-shown) + label {
+    top: -10px;
+    font-size: 13px;
+    color: #58D68D;
+}
+
+/* Botón de inicio */
+input[type="submit"] {
+    background-color: #58D68D;
+    color: white;
+    padding: 12px;
+    border: none;
+    border-radius: 8px;
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+input[type="submit"]:hover {
+    background-color: #4cb57c;
+}
+
+/* Enlace "¿olvidaste tu contraseña?" */
+.recordar {
+    text-align: right;
+    font-size: 14px;
+    color: #6c757d;
+    text-decoration: none;
+    margin-top: -10px;
+}
+
+.recordar:hover {
+    text-decoration: underline;
+}
+
+/* Registro */
+.registrarse {
+    margin-top: 15px;
+    font-size: 14px;
+    color: #444;
+}
+
+.registrarse a {
+    color: #00723f;
+    font-weight: 600;
+    text-decoration: none;
+}
+
+.registrarse a:hover {
+    text-decoration: underline;
+}

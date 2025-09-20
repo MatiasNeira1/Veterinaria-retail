@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Iniciar sesión</title>
+    <link rel="stylesheet" href="../css/login.css">
+    <script src="../js/login.js" defer></script>
+</head>
+<body>
+    <div class="formulario">
+        <h1>Inicio de sesión</h1>
+        <form method="post" onsubmit="return login(event)">
+            <div class="usuario">
+                <label for="email"></label>
+                <input type="email" id="email" name="email" required placeholder="Introduce tu correo">
+            </div>
+            <div class="usuario">
+                <label for="password"></label>
+                <input type="password" id="password" name="password" required placeholder="Introduce tu contraseña">
+            </div>
+            <div class="recordar">
+                <a href="forgot-password.html">¿Olvidó su contraseña?</a>
+            </div>
+            <button href="login.html">Iniciar sesión</button>
+            <div class="registrarse">
+                <a href="register.html">Quiero registrarme</a>
+            </div>
+        </form>
+        <div id="message" style="display: none; text-align: center; color: green; margin-top: 20px;">Haz iniciado sesión</div>
+    </div>
+</body>
+</html>

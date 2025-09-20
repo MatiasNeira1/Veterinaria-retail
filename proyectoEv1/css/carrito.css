@@ -1,0 +1,86 @@
+/* carrito.css */
+
+body {
+  font-family: Arial, sans-serif;
+  background-color: #f9f9f9;
+  margin: 0;
+  padding: 0;
+}
+
+header {
+  background-color: green;
+  color: white;
+  padding: 15px;
+  text-align: center;
+}
+
+h2 {
+  text-align: center;
+  margin-top: 30px;
+}
+
+.carrito-container {
+  max-width: 800px;
+  margin: 40px auto;
+  background-color: white;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.carrito-item {
+  display: flex;
+  justify-content: space-between;
+  border-bottom: 1px solid #ddd;
+  padding: 10px 0;
+}
+
+.carrito-item:last-child {
+  border-bottom: none;
+}
+
+.item-nombre {
+  font-weight: bold;
+}
+
+.item-precio {
+  color: #555;
+}
+
+.total {
+  text-align: right;
+  font-size: 18px;
+  margin-top: 20px;
+  font-weight: bold;
+}
+
+.btn-finalizar {
+  display: block;
+  margin: 30px auto 0;
+  background-color: #f7b731;
+  color: white;
+  border: none;
+  padding: 12px 25px;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 16px;
+  transition: background-color 0.3s;
+}
+
+.btn-finalizar:hover {
+  background-color: #e0a800;
+}
+
+.volver {
+  text-align: center;
+  margin-top: 20px;
+}
+
+.volver a {
+  color: #007bff;
+  text-decoration: none;
+}
+
+.volver a:hover {
+  text-decoration: underline;
+}

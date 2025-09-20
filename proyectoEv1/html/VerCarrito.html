@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Ver Carrito - Cachupin</title>
+  <link rel="stylesheet" href="../css/menu.css" />
+  <link rel="stylesheet" href="../css/carrito.css" />
+  <script src="../js/VerCarrito.js"></script>
+
+</head>
+<body>
+
+  <header>
+    <h1>Cachupin - Tu Carrito</h1>
+  </header>
+
+  <div class="carrito-container">
+    <h2>Productos en tu carrito</h2>
+
+    <div id="lista-carrito">
+      <!-- Productos agregados se mostrarán aquí -->
+    </div>
+
+    <div class="total" id="total-carrito">
+      Total: $0
+    </div>
+
+    <button class="btn-finalizar" onclick="window.location.href='finalizar-compra.html'">Finalizar compra</button>
+
+    <div class="volver">
+      <a href="javascript:history.back()">← Volver</a>
+    </div>
+  </div>
+
+
+</body>
+</html>

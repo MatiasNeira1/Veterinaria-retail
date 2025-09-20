@@ -1,0 +1,367 @@
+/* ===== ESTILOS GENERALES ===== */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+  }
+  
+  /* ===== CABECERA CON BARRA SUPERIOR ===== */
+  .top-bar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background-color: green;
+    padding: 20x 20px;
+    color: white;
+    position: relative;
+    gap: 20px;
+    flex-wrap: wrap;
+  }
+  
+  .left-section {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+  }
+  
+  #cabecera {
+    margin: 0;
+    font-size: 24px;
+    font-weight: bold;
+    cursor: pointer;
+  }
+  
+  /* Botón abrir menú */
+  .open-btn {
+    background: none;
+    border: none;
+    font-size: 18px;
+    color: white;
+    cursor: pointer;
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    padding: 6px 12px;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+  }
+  
+  .open-btn:hover {
+    background-color: rgba(255, 255, 255, 0.2);
+  }
+  
+  /* Barra de búsqueda */
+  #search-bar {
+    display: flex;
+    flex-grow: 1;
+    max-width: 500px;
+    background: white;
+    border-radius: 20px;
+    overflow: hidden;
+  }
+  
+  #search-bar input[type="text"] {
+    flex-grow: 1;
+    padding: 8px 15px;
+    border: none;
+    outline: none;
+    font-size: 14px;
+    color: #333;
+  }
+  
+  #search-bar input::placeholder {
+    color: #aaa;
+  }
+  
+  #search-bar button {
+    background-color: green;
+    border: none;
+    color: white;
+    padding: 0 15px;
+    cursor: pointer;
+    font-size: 18px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background-color 0.3s ease;
+  }
+  
+  #search-bar button:hover {
+    background-color: #145214;
+  }
+  
+  /* Botón Iniciar sesión */
+  #top-right-button {
+    
+    /* Alineado a la derecha con flex */
+  }
+  
+  #top-right-button .btn-productos {
+    background-color: #28a745;
+    color: white;
+    border: none;
+    padding: 8px 18px;
+    font-size: 16px;
+    font-weight: 600;
+    border-radius: 6px;
+    cursor: pointer;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: background-color 0.3s ease, box-shadow 0.3s ease;
+  }
+  #top-right-button .btn-login {
+    background-color: #28a745;
+    color: white;
+    border: none;
+    padding: 8px 18px;
+    font-size: 16px;
+    font-weight: 600;
+    border-radius: 6px;
+    cursor: pointer;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: background-color 0.3s ease, box-shadow 0.3s ease;
+  }
+  
+  #top-right-button .btn-login:hover {
+    background-color: #218838;
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+  }
+  
+  #top-right-button .btn-login:focus {
+    outline: 2px solid #218838;
+    outline-offset: 2px;
+  }
+  
+  /* ===== MENÚ LATERAL ===== */
+  .sidebar {
+    height: 100%;
+    width: 0;
+    position: fixed;
+    z-index: 2;
+    top: 0;
+    left: 0;
+    background-color: #347c03;
+    overflow-x: hidden;
+    transition: 0.3s;
+    padding-top: 60px;
+  }
+  
+  #overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 1;
+    display: none;
+  }
+  
+  .sidebar a {
+    padding: 10px 15px;
+    text-decoration: none;
+    font-size: 18px;
+    color: white;
+    display: block;
+  }
+  
+  .sidebar .close-btn {
+    position: absolute;
+    top: 10px;
+    right: 15px;
+    font-size: 36px;
+    color: white;
+    background: none;
+    border: none;
+    cursor: pointer;
+  }
+  
+  /* ===== CARRUSEL ===== */
+  .carrusel {
+    width: 600px;
+    height: 400px;
+    margin: 40px auto;
+    position: relative;
+    overflow: hidden;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+}
+
+/* Posicionamos los enlaces */
+.carrusel a {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    opacity: 0;
+    animation: cambiar 15s infinite;
+    display: block; /* Para asegurar que ocupa todo el espacio */
+}
+
+/* Animación escalonada para cada enlace */
+.carrusel a:nth-child(1) {
+    animation-delay: 0s;
+}
+.carrusel a:nth-child(2) {
+    animation-delay: 5s;
+}
+.carrusel a:nth-child(3) {
+    animation-delay: 10s;
+}
+
+/* Las imágenes ocupan todo el espacio del enlace */
+.carrusel img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* Animación para fade in/out */
+@keyframes cambiar {
+    0% {
+        opacity: 0;
+    }
+    5% {
+        opacity: 1;
+    }
+    33% {
+        opacity: 1;
+    }
+    38% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 0;
+    }
+}
+/* Estilos generales */
+body {
+  font-family: 'Arial', sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: #f4f4f4;
+  text-transform: uppercase;
+}
+
+.footer {
+  background-color: #08200e;
+  color: #fff;
+  padding: 5px 0;
+  text-align: center;
+  font-size: 14px;
+}
+
+.footer-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.footer-content .subscribe {
+  margin-bottom: 30px;
+}
+
+.footer-content .subscribe input {
+  padding: 10px;
+  font-size: 16px;
+  width: 250px;
+  margin-right: 10px;
+  border: none;
+  border-radius: 5px;
+}
+
+.footer-content .subscribe button {
+  padding: 10px 20px;
+  font-size: 16px;
+  background-color: #f7b731;
+  border: none;
+  border-radius: 5px;
+  color: #fff;
+  cursor: pointer;
+}
+
+.footer-content .subscribe button:hover {
+  background-color: rgb(0, 0, 0);
+}
+
+/* Estilos de los enlaces */
+.footer-links {
+  display: flex;
+  justify-content: space-around;
+  width: 100%;
+  margin-bottom: 30px;
+}
+
+.footer-links .section {
+  width: 200px;
+}
+
+.footer-links h3 {
+  font-size: 18px;
+  margin-bottom: 10px;
+  text-transform: uppercase;
+  font-weight: bold;
+  color: white;
+}
+
+.footer-links a {
+  color: #bbb;
+  text-decoration: none;
+  margin-bottom: 10px;
+  display: block;
+  transition: color 0.3s ease;
+}
+
+.footer-links a:hover {
+  color: #f7b731;
+}
+
+/* Pie de página */
+footer p {
+  font-size: 12px;
+  color: #bbb;
+  margin-top: 20px;
+}
+
+/* Estilos para los iconos sociales */
+.social-icons {
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+  margin-top: 20px;
+}
+
+.social-icons .Icons_hoverIconContainer__S8wyn {
+  background-color: #f7b731;
+  padding: 10px;
+  border-radius: 50%;
+  transition: transform 0.3s ease, background-color 0.3s ease;
+}
+
+.social-icons .Icons_hoverIconContainer__S8wyn:hover {
+  transform: scale(1.1);
+  background-color: #000000;
+}
+
+.social-icons a img {
+  width: 25px;
+  height: 25px;
+}
+
+.btn-agendar {
+  display: inline-block;
+  background-color: #f99c1c; /* Naranja */
+  color: white;
+  padding: 10px 20px;
+  border-radius: 20px;
+  text-decoration: none;
+  font-weight: bold;
+  font-family: sans-serif;
+  transition: background-color 0.3s ease;
+  font-size: 14px;
+}
+
+.btn-agendar:hover {
+  background-color: #e68915; /* Un poco más oscuro al pasar el mouse */
+}

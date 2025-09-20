@@ -1,0 +1,111 @@
+/* Estilos globales */
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Montserrat', sans-serif;
+    background: linear-gradient(150deg, #145214, #1e6e2c);
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Contenedor principal del formulario */
+.formulario {
+    background-color: #ffffff;
+    width: 100%;
+    max-width: 420px;
+    padding: 40px 30px;
+    border-radius: 12px;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
+    box-sizing: border-box;
+}
+
+/* Título */
+h1 {
+    text-align: center;
+    color: #145214;
+    font-size: 26px;
+    margin-bottom: 30px;
+}
+
+/* Campo con etiqueta flotante */
+.usuario {
+    position: relative;
+    margin-bottom: 25px;
+}
+
+.usuario input {
+    width: 100%;
+    padding: 14px 12px;
+    font-size: 15px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    background-color: #f9f9f9;
+    outline: none;
+    transition: border-color 0.3s ease, background-color 0.3s ease;
+}
+
+.usuario label {
+    position: absolute;
+    top: 50%;
+    left: 12px;
+    transform: translateY(-50%);
+    font-size: 15px;
+    color: #999;
+    background-color: white;
+    padding: 0 5px;
+    pointer-events: none;
+    transition: all 0.3s ease;
+}
+
+.usuario input:focus {
+    border-color: #145214;
+    background-color: #fff;
+}
+
+.usuario input:focus + label,
+.usuario input:not(:placeholder-shown) + label {
+    top: -10px;
+    left: 10px;
+    font-size: 13px;
+    color: #145214;
+}
+
+/* Botón principal */
+button {
+    width: 100%;
+    padding: 14px;
+    background-color: #145214;
+    color: white;
+    font-size: 16px;
+    border: none;
+    border-radius: 8px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+button:hover {
+    background-color: #104410;
+}
+
+/* Sección de registro */
+.registrarse {
+    margin-top: 20px;
+    text-align: center;
+    font-size: 14px;
+    color: #555;
+}
+
+.registrarse a {
+    color: #145214;
+    text-decoration: none;
+    font-weight: 600;
+    transition: color 0.3s ease;
+}
+
+.registrarse a:hover {
+    text-decoration: underline;
+    color: #0e3e0e;
+}
