@@ -1,7 +1,9 @@
 import { useState } from "react";
 import { Form, Button, Card, Container, Row, Col } from "react-bootstrap";
 
+import { useNavigate } from "react-router-dom";
 export default function Register(){
+  const navigate = useNavigate();
     const[users, SetUsers]=useState([]);
     const[name, setName] = useState("");
     const[telefono,setTelefono]= useState("");
@@ -21,8 +23,11 @@ export default function Register(){
       setEmail("");
       setPassword("");
       
-      console.log("Email logueado:"+ {email})
+      console.log("Email logueado:"+ email)
     }
+    const redirectToLogin=()=>{
+      navigate('/Login')
+  }
 
   return (
     <Container className="mt-5">
@@ -87,6 +92,7 @@ export default function Register(){
     <Button type="submit"variant="success">Registrar</Button>
 
     </form>
+    <button type="submit" onClick={redirectToLogin}>Ir a inicio de sesion</button>
   
 
 </Container>
