@@ -45,13 +45,13 @@ const VerCarrito = () => {
       </div>
 
       {/* Botón para finalizar la compra */}
-      <button className="btn-finalizar" onClick={() => window.location.href = '/Menu'}>
+      <button className="btn-finalizar" onClick={() => window.location.href = '/FinalizarCompra'}>
         Finalizar compra
       </button>
 
       {/* Enlace para volver */}
       <div className="volver">
-        <Link to="/">← Volver</Link>
+        <Link to="/Menu">← Volver</Link>
       </div>
     </div>
   );

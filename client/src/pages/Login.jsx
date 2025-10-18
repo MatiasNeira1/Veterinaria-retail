@@ -1,61 +1,85 @@
-import { useState } from "react";
-import { Form, Button, Card, Container, Row, Col } from "react-bootstrap";
-import users from "./Register";
+import React, { useState } from "react";
+import { Form, Button, Container, Row, Col } from "react-bootstrap";
+import { useNavigate } from "react-router-dom"; 
 
-export default function Login(){
-    const [email, setEmail] = useState("");
-    const [password, setPassword] = useState("");
-    const [error, setError] = useState("");
-    
-    const handleLogin = (e) => {
+const Login = () => {
+  const navigate = useNavigate();
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const [error, setError] = useState("");
+
+  const handleLogin = (e) => {
     e.preventDefault();
-    console.log("Iniciando...")
-    console.log("Sesiona iniciada con email " + email)
-    
 
-    const user=users.find((user)=>user.email===email)
-
-    if(user){
-        if(user.password===password){
-          console.log("Sesion iniciada con el email " +email)    
-          setError("")
-        }else{
-            setError("Contraseña incorrecta")
-        }
-
+    if (!email || !password) {
+      setError("Por favor, ingresa el correo y la contraseña.");
+      return; 
     }
-}
 
-    
-    
-return (
-    <Form onSubmit={handleLogin}>
-      <Form.Group className="mb-3" controlId="formBasicEmail">
-        <Form.Label>
-        Email address
-         </Form.Label>
-        <Form.Control type="email" placeholder="Ingresar correo"
-        value={email}
-        onChange={(e) => setEmail(e.target.value)}
-        />
-        
-      </Form.Group>
+   
+    const users = JSON.parse(localStorage.getItem("users")) || [];
 
-      <Form.Group className="mb-3" controlId="formBasicPassword">
-        <Form.Label>Password</Form.Label>
-        <Form.Control type="password" placeholder="Contraseña"
-        value={password} 
-        onChange={(e) => setPassword(e.target.value)}/>
+    const user = users.find((user) => user.email === email);
 
-      </Form.Group>
-      <Form.Group className="mb-3" controlId="formBasicCheckbox">
-        <Form.Check type="checkbox" label="Check me out" />
-      </Form.Group>
-      {error && <p className="text-danger">{error}</p>}
-      <Button variant="primary" type="submit">
-        Ingresar
-      </Button>
-    </Form>
+    if (user) {
+      if (user.password === password) {
+        console.log("Sesión iniciada con el email " + email);
+        setError(""); 
+        navigate("/Menu"); 
+      } else {
+        setError("Contraseña incorrecta");
+      }
+    } else {
+      setError("Usuario no encontrado");
+    }
+  };
+
+  return (
+    <Container className="mt-5">
+      <h1 className="text-center mb-4">Iniciar sesión</h1>
+      <Form onSubmit={handleLogin}>
+        {/* Campo de email */}
+        <Form.Group as={Row} className="mb-3" controlId="formBasicEmail">
+          <Form.Label column sm="3">Correo electrónico</Form.Label>
+          <Col sm="9">
+            <Form.Control
+              type="email"
+              placeholder="Ingresar correo"
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
+            />
+          </Col>
+        </Form.Group>
+
+        {/* Campo de contraseña */}
+        <Form.Group as={Row} className="mb-3" controlId="formBasicPassword">
+          <Form.Label column sm="3">Contraseña</Form.Label>
+          <Col sm="9">
+            <Form.Control
+              type="password"
+              placeholder="Contraseña"
+              value={password}
+              onChange={(e) => setPassword(e.target.value)}
+            />
+          </Col>
+        </Form.Group>
+
+        {/* Error de login */}
+        {error && <p className="text-danger">{error}</p>}
+
+        <Button variant="primary" type="submit" className="w-100">
+          Ingresar
+        </Button>
+      </Form>
+
+      {/* Enlace para registrarse */}
+      <div className="text-center mt-3">
+        <Button variant="link" onClick={() => navigate("/register")}>
+          ¿No tienes cuenta? Regístrate aquí
+        </Button>
+      </div>
+    </Container>
   );
+};
 
-}
+export default Login;

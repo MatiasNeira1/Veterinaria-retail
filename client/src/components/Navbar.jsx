@@ -39,7 +39,7 @@ const CustomNavbar = () => {
 
         <Button
           as={Link} 
-          to="/agendar"
+          to="/Agendar"
           variant="success"
           className="ms-auto"
           style={{ whiteSpace: 'nowrap' }}
