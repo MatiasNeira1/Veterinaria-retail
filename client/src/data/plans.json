@@ -1,0 +1,39 @@
+[
+  {
+    "id": "p1",
+    "titulo": "Plan Anual Perro Adulto - Básico",
+    "texto": "Consulta veterinaria válida para solo una mascota.",
+    "img": "/public/img/foto-planes.png"
+  },
+  {
+    "id": "p2",
+    "titulo": "Plan Anual Perro Adulto - Plus",
+    "texto": "Incluye vacunas y control semestral.",
+    "img": "/public/img/foto-planes.png"
+  },
+  {
+    "id": "p3",
+    "titulo": "Plan Cachorro - Starter",
+    "texto": "Primeras vacunas y chequeos.",
+    "img": "/public/img/foto-planes.png"
+  },
+
+  {
+    "id": "p4",
+    "titulo": "Plan Anual Gato Adulto - Básico",
+    "texto": "Consulta veterinaria válida para solo una mascota.",
+    "img": "/public/img/foto-planes.png"
+  },
+  {
+    "id": "p5",
+    "titulo": "Plan Anual Gato Adulto - Plus",
+    "texto": "Incluye vacunas y control semestral.",
+    "img": "/public/img/foto-planes.png"
+  },
+  {
+    "id": "p6",
+    "titulo": "Plan Cachorro - Starter",
+    "texto": "Primeras vacunas y chequeos.",
+    "img": "/public/img/foto-planes.png"
+  }
+]

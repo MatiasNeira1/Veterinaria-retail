@@ -1,10 +1,11 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom'; // Usamos Link para navegación interna
 import { Navbar, Container, Form, Button, Card, Row, Col } from 'react-bootstrap'; // Importamos react-bootstrap
-import CorreaGato from '../assets/img/CorreaGato.jpg';
-import ComidaGato from '../assets/img/ComidaGato.webp';
-import JugueteGato from '../assets/img/JugueteGato.webp';
-import CajaArenaGato from '../assets/img/CajaArenaGato.webp'; // Añadir más imágenes si es necesario
+import CorreaGato from '/img/CorreaGato.jpg';
+import ComidaGato from '/img/ComidaGato.webp';
+import JugueteGato from '/img/JugueteGato.webp';
+import CajaArenaGato from '/img/CajaArenaGato.webp';
+// Añadir más imágenes si es necesari
 
 const Productos = () => {
   const [carrito, setCarrito] = useState([]); // Estado para el carrito de compras

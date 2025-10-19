@@ -13,9 +13,9 @@ import {
 } from "react-bootstrap";
 import Footer from "../components/Footer";
 
-import CorreaGato from '../assets/img/CorreaGato.jpg';
-import ComidaGato from '../assets/img/ComidaGato.webp';
-import JugueteGato from '../assets/img/JugueteGato.webp';
+import CorreaGato from '/img/CorreaGato.jpg';
+import ComidaGato from '/img/ComidaGato.webp';
+import JugueteGato from '/img/JugueteGato.webp';
 
 export default function Menu() {
   const [showSidebar, setShowSidebar] = useState(false);

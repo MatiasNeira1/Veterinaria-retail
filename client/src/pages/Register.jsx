@@ -44,7 +44,7 @@ const Register = () => {
     // Redirigir al login después de mostrar la notificación
     setTimeout(() => {
       navigate("/login"); // Redirige automáticamente al login
-    },0); // Espera 3 segundos antes de redirigir
+    },0); // 
   };
 
   return (

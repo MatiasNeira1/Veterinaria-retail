@@ -16,11 +16,12 @@ function App() {
     <Router>
       <div>
         <Routes>
+            {/* Cuando se elimina path funciona*/}
+            <Route path="/" element={<Menu />} />
             <Route path="/" element={<Login />} /> 
             <Route path="/register" element={<Register />} />
             <Route path="/login" element={<Login />} />
             <Route path="/Plan" element={<Showplans />} />
-            <Route path="/Menu" element={<Menu />} />
             <Route path="/VerCarrito" element={<VerCarrito />} />
             <Route path="/productos" element={<Productos />} />
             <Route path="/FinalizarCompra" element={<FinalizarCompra />} />
