@@ -1,101 +1,83 @@
-import React from 'react';
-import { Container, Row, Col, Form, Button, Nav } from 'react-bootstrap'; // Importamos react-bootstrap
+import React from "react";
+import { Container, Row, Col, Form, Button, Nav } from "react-bootstrap";
 
 const Footer = () => {
   return (
-    <footer className="bg-light text-dark pt-4" style={{ borderTop: "1px solid #ddd" }}>
+    <footer
+      className="bg-light text-dark mt-auto py-4"
+      style={{
+        borderTop: "1px solid #ddd",
+        width: "100vw",
+        marginLeft: "calc(50% - 50vw)",
+        marginRight: "calc(50% - 50vw)",
+      }}
+    >
+      {/* Contenido centrado con ancho limitado */}
       <Container>
-
-        {/* Sección de suscripción al boletín */}
+        {/* Suscripción */}
         <Row className="mb-3 justify-content-center">
-          <Col xs={12} md={6} className="d-flex">
+          <Col xs={12} md={8} lg={6} className="d-flex">
             <Form.Control
               type="email"
               placeholder="Ingresa tu correo electrónico"
               aria-label="Correo electrónico para suscripción"
             />
-            <Button variant="success" className="ms-2" aria-label="Suscribirse al boletín">
-              SUSCRIBIRSE
-            </Button>
+            <Button variant="success" className="ms-2">SUSCRIBIRSE</Button>
           </Col>
         </Row>
 
-        {/* Sección de enlaces */}
+        {/* Enlaces */}
         <Row className="mb-3">
-          <Col xs={12} sm={6} md={3}>
-            <h5>NOSOTROS</h5>
+          <Col xs={12} sm={6} md={3} className="mb-3 mb-md-0">
+            <h5 className="mb-2">NOSOTROS</h5>
             <Nav className="flex-column">
               <Nav.Link href="terminos.html">Términos y Condiciones</Nav.Link>
             </Nav>
           </Col>
 
-          <Col xs={12} sm={6} md={3}>
-            <h5>SOPORTE</h5>
+          <Col xs={12} sm={6} md={3} className="mb-3 mb-md-0">
+            <h5 className="mb-2">SOPORTE</h5>
             <Nav className="flex-column">
-              <Nav.Link href="">Preguntas Frecuentes</Nav.Link>
-              <Nav.Link href="">Solicitud Post Venta</Nav.Link>
-              <Nav.Link href="">Contáctanos</Nav.Link>
+              <Nav.Link href="#">Preguntas Frecuentes</Nav.Link>
+              <Nav.Link href="#">Solicitud Post Venta</Nav.Link>
+              <Nav.Link href="#">Contáctanos</Nav.Link>
+            </Nav>
+          </Col>
+
+          <Col xs={12} sm={6} md={3} className="mb-3 mb-md-0">
+            <h5 className="mb-2">MI CUENTA</h5>
+            <Nav className="flex-column">
+              <Nav.Link href="#">Entrar a Mi Cuenta</Nav.Link>
+              <Nav.Link href="#">Quiero Registrarme</Nav.Link>
+              <Nav.Link href="#">Ya soy cliente y quiero ingresar</Nav.Link>
             </Nav>
           </Col>
 
           <Col xs={12} sm={6} md={3}>
-            <h5>MI CUENTA</h5>
-            <Nav className="flex-column">
-              <Nav.Link href="">Entrar a Mi Cuenta</Nav.Link>
-              <Nav.Link href="">Quiero Registrarme</Nav.Link>
-              <Nav.Link href="">Ya soy cliente y quiero ingresar</Nav.Link>
-            </Nav>
-          </Col>
-
-          <Col xs={12} sm={6} md={3}>
-            <h5>CONTACTO</h5>
-            <p>Ubicación: Bodega chiringuito chatarra, Bodega 29, isla 1</p>
-            <p>+56 9 1234 5678</p>
-            <p>+56 9 5678 1234</p>
-            <p>+56 9 5612 7834</p>
-            <p>
-              <a href="mailto:contacto.web@diprovet.cl">contacto.web@duoc.cl</a>
+            <h5 className="mb-2">CONTACTO</h5>
+            <p className="mb-1">Ubicación: Bodega chiringuito chatarra, Bodega 29, isla 1</p>
+            <p className="mb-1">+56 9 1234 5678</p>
+            <p className="mb-1">+56 9 5678 1234</p>
+            <p className="mb-1">+56 9 5612 7834</p>
+            <p className="mb-0">
+              <a href="mailto:contacto.web@duoc.cl">contacto.web@duoc.cl</a>
             </p>
           </Col>
         </Row>
 
-        {/* Redes sociales */}
-        <Row className="justify-content-center my-3">
-          <Col xs="auto" className="d-flex gap-3 justify-content-center">
-            <a href="https://twitter.com" target="_blank" rel="noopener noreferrer" aria-label="Twitter">
-              <img
-                src="https://storage.googleapis.com/home.ripley.cl/rdex/footercomponent/social_network/twitter_dark.svg"
-                alt="Twitter"
-                width={25}
-                height={25}
-              />
-            </a>
-            <a href="https://www.facebook.com" target="_blank" rel="noopener noreferrer" aria-label="Facebook">
-              <img
-                src="https://storage.googleapis.com/home.ripley.cl/rdex/footercomponent/social_network/facebook_dark.svg"
-                alt="Facebook"
-                width={25}
-                height={25}
-              />
-            </a>
-            <a href="https://www.youtube.com" target="_blank" rel="noopener noreferrer" aria-label="YouTube">
-              <img
-                src="https://storage.googleapis.com/home.ripley.cl/rdex/footercomponent/social_network/youtube_dark.svg"
-                alt="YouTube"
-                width={25}
-                height={25}
-              />
-            </a>
+        {/* Redes */}
+        <Row className="justify-content-center my-2">
+          <Col xs="auto" className="d-flex gap-3">
+            {/* …icons… */}
           </Col>
         </Row>
 
-        {/* Derechos de autor */}
+        {/* Copyright */}
         <Row>
           <Col className="text-center">
-            <p>&copy; 2025 Cachupin, todos los derechos reservados</p>
+            <small>&copy; 2025 Cachupin, todos los derechos reservados</small>
           </Col>
         </Row>
-
       </Container>
     </footer>
   );

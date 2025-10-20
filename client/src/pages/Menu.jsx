@@ -65,7 +65,7 @@ export default function Menu() {
         </Row>
       </Container>
 
-      <Footer />
+      {/*<Footer /> Se comentó esto  */}
     </>
   );
 }
