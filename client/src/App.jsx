@@ -9,6 +9,7 @@ import FinalizarCompra from './pages/FinalizarCompra';
 import AgendarCita from './pages/Agendar';
 
 import { BrowserRouter as Router, Route, Routes, Link } from "react-router-dom";
+import DetailPlan from './pages/DetallesPlan';
 
 function App() {
 
@@ -18,7 +19,8 @@ function App() {
         <Routes>
             {/* Cuando se elimina path funciona*/}
             <Route path="/" element={<Menu />} />
-            <Route path="/" element={<Login />} /> 
+            <Route path="/Login" element={<Login />} />
+            <Route path='/DetallesPlan/:id' element={<DetailPlan/>} />
             <Route path="/register" element={<Register />} />
             <Route path="/login" element={<Login />} />
             <Route path="/Plan" element={<Showplans />} />
