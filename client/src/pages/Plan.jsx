@@ -14,6 +14,7 @@ export default function Plan() {
     navigate(`/DetallesPlan/${id}`, { state: { planId: id } });
   }
   return (
+    
     <Container className="my-5 mx-auto" style={{ maxWidth: 1100 }} >
         <Row className="row-cols-1 row-cols-sm-2 row-cols-md-3 gap-4 justify-content-center">
         {planes.map((plan) => (

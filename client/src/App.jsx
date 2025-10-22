@@ -9,29 +9,30 @@ import Productos from './pages/Productos'
 import FinalizarCompra from './pages/FinalizarCompra'
 import AgendarCita from './pages/Agendar'
 import DetailPlan from './pages/DetallesPlan'
-import Footer from './components/Footer'
-import  Navbar  from './components/Navbar'
+import AdminPanel from './pages/Adminpanel';
+import AgregarPlan from './pages/AgregarPlan';
+import AgregarProducto from './pages/AgregarProducto';
+import AgregarUsuario from './pages/AgregarUsuario';
+
 
 function App() {
   return (
     <Router>
-      <div className="d-flex flex-column min-vh-100">
-        <Navbar/>
-        <main className="flex-grow-1">
           <Routes>
-            <Route path="/" element={<Menu />} />
+            <Route path="/2" element={<Menu />} />
             <Route path="/login" element={<Login />} />
             <Route path="/register" element={<Register />} />
             <Route path="/Plan" element={<Showplans />} />
             <Route path="/VerCarrito" element={<VerCarrito />} />
             <Route path="/productos" element={<Productos />} />
+            <Route path="/agregarplan" element={<AgregarPlan />} />
+            <Route path="/agregarproducto" element={<AgregarProducto />} />
+            <Route path="/agregarusuario" element={<AgregarUsuario />} />
             <Route path="/FinalizarCompra" element={<FinalizarCompra />} />
             <Route path="/agendar" element={<AgendarCita />} />
             <Route path="/DetallesPlan/:id" element={<DetailPlan />} />
+            <Route path="/" element={<AdminPanel />} />
           </Routes>
-        </main>
-        <Footer />  {/* fuera de cualquier .container, ya que esto podria ser el error, cualquier cosa borrar  */}
-      </div>
     </Router>
   )
 }

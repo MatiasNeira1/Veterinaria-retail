@@ -1,11 +1,12 @@
 import React, { useState, useEffect } from "react";
-import { Link } from "react-router-dom"; // Usar Link para la navegación interna
+import { Link } from "react-router-dom"; 
+import { Container, Row, Col, Button, Card, Alert } from "react-bootstrap"; // Importar componentes de Bootstrap
 
 const VerCarrito = () => {
   const [carrito, setCarrito] = useState([]);
   const [total, setTotal] = useState(0);
 
-  // Cargar el carrito desde el almacenamiento local o API
+  // Cargar el carrito desde el almacenamiento local
   useEffect(() => {
     const carritoGuardado = JSON.parse(localStorage.getItem("carrito")) || [];
     setCarrito(carritoGuardado);
@@ -19,41 +20,60 @@ const VerCarrito = () => {
   };
 
   return (
-    <div className="carrito-container">
+    <Container className="my-4">
       <header>
-        <h1>Cachupin - Tu Carrito</h1>
+        <h1 className="text-center mb-4">Cachupin - Tu Carrito</h1>
       </header>
 
-      <h2>Productos en tu carrito</h2>
+      <h2 className="mb-3 text-center">Productos en tu carrito</h2>
 
-      <div id="lista-carrito">
-        {/* Muestra los productos en el carrito */}
-        {carrito.length === 0 ? (
-          <p>No hay productos en tu carrito.</p>
-        ) : (
-          carrito.map((producto, index) => (
-            <div key={index} className="producto-carrito">
-              <p>{producto.nombre}</p>
-              <p>Precio: ${producto.precio}</p>
-            </div>
-          ))
-        )}
-      </div>
+      {/* Si no hay productos, mostrar alerta */}
+      {carrito.length === 0 ? (
+        <Alert variant="warning" className="text-center">
+          No hay productos en tu carrito.
+        </Alert>
+      ) : (
+        <Row className="justify-content-center">
+          {/* Muestra los productos en el carrito */}
+          {carrito.map((producto, index) => (
+            <Col key={index} xs={5} sm={50} md={50} lg={50} xl={50} className="mb-4">
+              <Card>
+                <Card.Img variant="top" src={producto.src} alt={producto.alt} />
+                <Card.Body>
+                  <Card.Title>{producto.nombre}</Card.Title>
+                  <Card.Text>
+                    Precio: <strong>${producto.precio}</strong>
+                  </Card.Text>
+                </Card.Body>
+              </Card>
+            </Col>
+          ))}
+        </Row>
+      )}
 
-      <div className="total" id="total-carrito">
-        Total: ${total}
+      {/* Total */}
+      <div className="total text-center mt-4">
+        <h3>Total: ${total}</h3>
       </div>
 
       {/* Botón para finalizar la compra */}
-      <button className="btn-finalizar" onClick={() => window.location.href = '/FinalizarCompra'}>
-        Finalizar compra
-      </button>
+      <div className="d-flex justify-content-center mt-4">
+        <Button
+          variant="success"
+          size="lg"
+          onClick={() => window.location.href = '/FinalizarCompra'}
+        >
+          Finalizar compra
+        </Button>
+      </div>
 
       {/* Enlace para volver */}
-      <div className="volver">
-        <Link to="/Menu">← Volver</Link>
+      <div className="d-flex justify-content-center mt-3">
+        <Link to="/">
+          <Button variant="/">← Volver al menú</Button>
+        </Link>
       </div>
-    </div>
+    </Container>
   );
 };
 

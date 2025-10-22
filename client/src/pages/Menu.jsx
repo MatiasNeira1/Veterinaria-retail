@@ -42,7 +42,7 @@ export default function Menu() {
 
   return (
     <>
-      
+      <Navbar/>
 
 
 
@@ -54,7 +54,7 @@ export default function Menu() {
         {/* Puedes meter un botón aquí si quieres */}
       </Banner>
 
-      {/*<Footer /> Se comentó esto  */}
+      <Footer />  
     </>
   );
 }
