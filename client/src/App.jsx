@@ -10,7 +10,7 @@ import FinalizarCompra from './pages/FinalizarCompra'
 import AgendarCita from './pages/Agendar'
 import DetailPlan from './pages/DetallesPlan'
 import Footer from './components/Footer'
-import { Navbar } from "../src/components/Navbar";
+import  Navbar  from './components/Navbar'
 
 function App() {
   return (
