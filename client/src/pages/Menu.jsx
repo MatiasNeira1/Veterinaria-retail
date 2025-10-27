@@ -14,9 +14,7 @@ import {
   Card,
 } from "react-bootstrap";
 import Footer from "../components/Footer";
-import CorreaGato from '/img/CorreaGato.jpg';
-import ComidaGato from '/img/ComidaGato.webp';
-import JugueteGato from '/img/JugueteGato.webp';
+
 import CardProduct from "../components/CardProduct";
 import comidas from "../data/comidaperros.json";
 
@@ -25,27 +23,7 @@ import comidas from "../data/comidaperros.json";
 
 
 export default function Menu() {
-  const [showSidebar, setShowSidebar] = useState(false);
-  const [currentImageIndex, setCurrentImageIndex] = useState(0); // Índice de la imagen actual
-  const images = [
-    { src: CorreaGato, alt: "Correa Gato" },
-    { src: ComidaGato, alt: "Comida Gato" },
-    { src: JugueteGato, alt: "Juguete Gato" },
-  ];
-
-  const handleClose = () => setShowSidebar(false);
-  const handleShow = () => setShowSidebar(true);
-
-  
-  useEffect(() => {
-    const interval = setInterval(() => {
-      setCurrentImageIndex((prevIndex) => (prevIndex + 1) % images.length);
-    }, 3000); 
-
-    return () => clearInterval(interval); 
-  }, []);
-
-  return (
+   return (
     <>
       <Navbar />
       {/*banner */}

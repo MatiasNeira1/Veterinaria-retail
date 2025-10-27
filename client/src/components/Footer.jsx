@@ -4,7 +4,7 @@ import { Container, Row, Col, Form, Button, Nav } from "react-bootstrap";
 const Footer = () => {
   return (
     <footer
-      className="bg-light text-dark mt-auto py-4  "
+      className="bg-light text-dark mt-auto py-4 "
       style={{
         borderTop: "1px solid #ddd",
         width: "100vw",

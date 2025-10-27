@@ -2,7 +2,7 @@
   {
     "id": "cp1",
     "img": "/img/Comida-perro1.webp",
-    "titulo": "Alimento Premium Adulto Raza Mediana 15kg",
+    "titulo": "Alimento Premium Adulto",
     "texto": "Croquetas nutritivas con proteínas de pollo y arroz integral.",
     "precio": 28990
   },
@@ -26,5 +26,5 @@
     "titulo": "Comida Senior Vitalidad 8kg",
     "texto": "Enriquecido con antioxidantes para perros mayores.",
     "precio": 23990
-  }
+  } 
 ]

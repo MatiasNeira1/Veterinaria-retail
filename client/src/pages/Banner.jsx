@@ -14,14 +14,14 @@
           display: "flex",
           alignItems: "center",
           backgroundImage: `url(${img})`,
-          backgroundSize: mode,              // "cover" o "contain"
+          backgroundSize: mode,              
           backgroundPosition: position,
           backgroundRepeat: "no-repeat",
           backgroundColor: "#0c3b0e"
           
         }}
       >
-        {/* Esto hace un Overlay suave*/}
+      
         <div
           style={{
             position: "absolute",
