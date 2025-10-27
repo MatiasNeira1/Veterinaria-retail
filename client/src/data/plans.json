@@ -3,6 +3,7 @@
     "id": "p1",
     "titulo": "Plan Anual Perro Adulto - Básico",
     "texto": "Consulta veterinaria válida para solo una mascota.",
+    "texto-detalle": "Con esta consulta obtendras varios planes veterinarios lalalalalaa.",
     "precio": 5000,
     "img": "/public/img/foto-planes.png",
     "caracteristicas": [
@@ -17,36 +18,80 @@
     "id": "p2",
     "titulo": "Plan Anual Perro Adulto - Plus",
     "texto": "Incluye vacunas y control semestral.",
+    "texto-detalle": "Este plan está diseñado para perros adultos, asegurando un control anual de salud con vacunas y chequeos semestrales para mantener a tu mascota en su mejor estado de salud.",
     "precio": 5000,
-    "img": "/public/img/foto-planes.png"
+    "img": "/public/img/foto-planes.png",
+    "caracteristicas": [
+      "Consulta veterinaria anual",
+      "Desparacitación interna y externa",
+      "Vacunas anuales",
+      "Control semestral de salud",
+      "Asesoramiento nutricional personalizado",
+      "Chequeos para enfermedades comunes en perros adultos"
+    ]
   },
   {
     "id": "p3",
     "titulo": "Plan Cachorro - Starter",
     "texto": "Primeras vacunas y chequeos.",
+    "texto-detalle": "Este plan está pensado para cachorros, cubriendo las primeras vacunas esenciales y chequeos de salud para asegurar un crecimiento saludable durante sus primeros meses.",
     "precio": 5000,
-    "img": "/public/img/foto-planes.png"
+    "img": "/public/img/foto-planes.png",
+    "caracteristicas": [
+      "Consulta veterinaria inicial",
+      "Vacunas básicas para cachorros",
+      "Chequeo de crecimiento y desarrollo",
+      "Desparacitación interna y externa",
+      "Consejos sobre alimentación y cuidados para cachorros",
+      "Control de peso y desarrollo físico"
+    ]
   },
-
   {
     "id": "p4",
     "titulo": "Plan Anual Gato Adulto - Básico",
     "texto": "Consulta veterinaria válida para solo una mascota.",
+    "texto-detalle": "Un plan completo para gatos adultos, que incluye consultas anuales y control básico de salud, con vacunas esenciales y asesoramiento nutricional para asegurar su bienestar.",
     "precio": 5000,
-    "img": "/public/img/foto-planes.png"
+    "img": "/public/img/foto-planes.png",
+    "caracteristicas": [
+      "Consulta veterinaria anual",
+      "Chequeo general de salud",
+      "Vacunas necesarias para gatos adultos",
+      "Desparacitación interna y externa",
+      "Asesoramiento nutricional básico",
+      "Control de salud dental"
+    ]
   },
   {
     "id": "p5",
     "titulo": "Plan Anual Gato Adulto - Plus",
     "texto": "Incluye vacunas y control semestral.",
+    "texto-detalle": "Con este plan, tu gato adulto recibirá atención veterinaria de calidad con vacunas anuales, controles semestrales de salud, y un seguimiento continuo de enfermedades comunes.",
     "precio": 5000,
-    "img": "/public/img/foto-planes.png"
+    "img": "/public/img/foto-planes.png",
+    "caracteristicas": [
+      "Consulta veterinaria anual",
+      "Vacunas esenciales para gatos adultos",
+      "Control semestral de salud",
+      "Desparacitación interna y externa",
+      "Control de enfermedades comunes en gatos adultos",
+      "Asesoramiento sobre comportamiento y cuidado"
+    ]
   },
   {
     "id": "p6",
     "titulo": "Plan Cachorro - Starter",
     "texto": "Primeras vacunas y chequeos.",
+    "texto-detalle": "Este plan cubre las primeras necesidades de salud para cachorros, incluyendo vacunas iniciales, chequeos generales y asesoramiento sobre el desarrollo saludable y la nutrición.",
     "precio": 5000,
-    "img": "/public/img/foto-planes.png"
+    "img": "/public/img/foto-planes.png",
+    "caracteristicas": [
+      "Consulta veterinaria para cachorros",
+      "Vacunas iniciales para cachorros",
+      "Desparacitación interna y externa",
+      "Chequeo de salud general",
+      "Consejos sobre socialización y educación",
+      "Asesoramiento nutricional adaptado a cachorros"
+    ]
   }
 ]

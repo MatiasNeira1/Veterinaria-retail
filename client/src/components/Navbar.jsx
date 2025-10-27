@@ -8,7 +8,7 @@ import {
   Col,
   Form,
   Button,
-  Nav,
+  Nav,  
   Badge,
 } from "react-bootstrap";
 
@@ -16,7 +16,7 @@ export default function CustomNavbar() {
   const [expanded, setExpanded] = useState(false);
 
   return (
-    <header>
+    <header  className="fixed-top w-100" style={{ zIndex: 1030 }}>
       {/* === Banda superior verde (logo + buscador + cuenta/carrito) === */}
       <div
         style={{

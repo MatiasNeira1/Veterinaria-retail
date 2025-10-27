@@ -27,14 +27,14 @@ const VerCarrito = () => {
 
       <h2 className="mb-3 text-center">Productos en tu carrito</h2>
 
-      {/* Si no hay productos, mostrar alerta */}
+      {/* no hay productos, mostrar alerta */}
       {carrito.length === 0 ? (
         <Alert variant="warning" className="text-center">
           No hay productos en tu carrito.
         </Alert>
       ) : (
         <Row className="justify-content-center">
-          {/* Muestra los productos en el carrito */}
+          {/*productos en el carrito */}
           {carrito.map((producto, index) => (
             <Col key={index} xs={5} sm={50} md={50} lg={50} xl={50} className="mb-4">
               <Card>
@@ -51,12 +51,12 @@ const VerCarrito = () => {
         </Row>
       )}
 
-      {/* Total */}
+      {/* total */}
       <div className="total text-center mt-4">
         <h3>Total: ${total}</h3>
       </div>
 
-      {/* Botón para finalizar la compra */}
+      {/* boton para finalizar la compra */}
       <div className="d-flex justify-content-center mt-4">
         <Button
           variant="success"

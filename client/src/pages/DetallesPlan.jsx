@@ -1,9 +1,9 @@
 // src/pages/DetallesPlan.jsx
-import { Container, Row, Col, Card, Button, ListGroup } from "react-bootstrap";
+import { Container, Row, Col, Card, Button } from "react-bootstrap";
 import { useParams, useLocation, Link } from "react-router-dom";
 import planes from "../data/plans.json";
 import  Navbar from "../components/Navbar";
-
+import Footer from "../components/Footer";
 
 const CLP = new Intl.NumberFormat("es-CL", { style: "currency", currency: "CLP" });
 
@@ -43,34 +43,49 @@ export default function DetailPlan() {
                 <img
                   src={plan.img}
                   alt={plan.titulo}
-                  className="img-fluid w-50"/>
+                  className="img-fluid"/>
               </Col>
   
               {/* Contenido a la DERECHA */}
-              <Col xs={12} lg={6} className="order-2 d-flex">
+              <Col xs={12} lg={6} className="order-2">
                 <Card.Body className="px-3 px-md-5 my-auto w-100">
-                  <Card.Title className="fs-4">{plan.titulo}</Card.Title>
-                  {plan.texto && <Card.Text>{plan.texto}</Card.Text>}
-                  <div className="fw-bold fs-5 text-success">{CLP.format(precio)}</div>
-  
-                  <h6 className="mt-3">Características</h6>
-                  <ListGroup className="mb-4">
-                    {(plan.caracteristicas ?? []).map((c, i) => (
-                      <ListGroup.Item key={i}>{c}</ListGroup.Item>
-                    ))}
-                  </ListGroup>
-  
-                  <Button as={Link} to="/plan" variant="outline-secondary">
-                    Volver
-                  </Button>
+
+                  <Card.Title className="fs-1">{plan.titulo}</Card.Title>
+                  
+                  {<Card.Text>{plan["texto-detalle"]}</Card.Text>}
+                  
+                  
+                  <div style={{ paddingRight: "210px", paddingLeft: "20px" }}>
+                    <h3 className="text-success fw-bold" >{CLP.format(precio)}</h3>
+                    <h4 className="mt-3 text-success" style={{ paddingRight: "10px"}}>Plan incluye:</h4>
+
+                  <div style={{ paddingRight: "20px", paddingLeft: "20px" }}>
+                      {(plan.caracteristicas ?? []).map((c, i) => (
+                        <p key={i} >{`• ${c}`}</p>  
+                      ))}
+                  </div>
+                  
+
+                </div>
+
+                  <Button variant="success" size="lg" as={Link} to="/plan">
+                  Volver
+                </Button>
+                <Button variant="success" size="lg" as={Link} to="/plan">
+                  Añadir al carrito
+                </Button>
                 </Card.Body>
               </Col>
+
             </Row>
           </Card>
         </Col>
       </Row>
     </Container>
-    </>   
+    <Footer/>  
+    </>
+     
   );
   
 }
+

@@ -1,0 +1,30 @@
+[
+  {
+    "id": "cp1",
+    "img": "/img/Comida-perro1.webp",
+    "titulo": "Alimento Premium Adulto Raza Mediana 15kg",
+    "texto": "Croquetas nutritivas con proteínas de pollo y arroz integral.",
+    "precio": 28990
+  },
+  {
+    "id": "cp2",
+    "img": "/img/Comida-perro2.jpg",
+    "titulo": "Comida Cachorro Etapa Inicial 3kg",
+    "texto": "Fórmula rica en calcio y DHA para un crecimiento saludable.",
+    "precio": 9990
+  },
+  {
+    "id": "cp3",
+    "img": "/img/Comida-perro3.webp",
+    "titulo": "Alimento Light Control de Peso 10kg",
+    "texto": "Receta baja en grasas, ideal para control de peso.",
+    "precio": 21990
+  },
+  {
+    "id": "cp4",
+    "img": "/img/Comida-perro4.webp",
+    "titulo": "Comida Senior Vitalidad 8kg",
+    "texto": "Enriquecido con antioxidantes para perros mayores.",
+    "precio": 23990
+  }
+]

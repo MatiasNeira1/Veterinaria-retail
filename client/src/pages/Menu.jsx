@@ -14,10 +14,15 @@ import {
   Card,
 } from "react-bootstrap";
 import Footer from "../components/Footer";
-
 import CorreaGato from '/img/CorreaGato.jpg';
 import ComidaGato from '/img/ComidaGato.webp';
 import JugueteGato from '/img/JugueteGato.webp';
+import CardProduct from "../components/CardProduct";
+import comidas from "../data/comidaperros.json";
+
+
+
+
 
 export default function Menu() {
   const [showSidebar, setShowSidebar] = useState(false);
@@ -42,19 +47,30 @@ export default function Menu() {
 
   return (
     <>
-      <Navbar/>
-
-
-
-      {/* ¿banner */}
-      <Banner image={BannerImg} height={520}>
-        {/* Texto y botón opcional como en Dr.Pet */}
-        <h2 className="fw-bold mb-2">¡Imperdibles!</h2>
-        <p className="mb-3">En alimentos seleccionados, despacho rápido.</p>
-        {/* Puedes meter un botón aquí si quieres */}
+      <Navbar />
+      {/*banner */}
+      <Banner img={BannerImg} 
+      position="center left">
+        <h1 className="fw-bold mb-3">Menú de Comidas para Perros</h1>
       </Banner>
 
-      <Footer />  
+      
+        <Container className="py-5">
+          <h1 className="fw-bold mb-4 text-start">Ofertas exclusivas!</h1>
+          <Row lg={4} className="g-5">
+            {comidas.map((comida) => (
+              <Col key={comida.id}>
+                <CardProduct
+                  img={comida.img}
+                  titulo={comida.titulo}
+                  texto={comida.texto}
+                  precio={comida.precio}
+                />
+              </Col>
+            ))}
+    </Row>
+  </Container>
+    <Footer /> 
     </>
   );
 }
