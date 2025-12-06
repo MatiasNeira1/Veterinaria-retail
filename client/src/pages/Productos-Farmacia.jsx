@@ -122,7 +122,7 @@ const Productos = () => {
         </Row>
       </Container>
 
-      {/* opcional: mostrar el Toast aquí si lo usas */}
+     
       <ToastContainer position="bottom-end" className="p-3">
         <Toast
           bg="success"
