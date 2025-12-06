@@ -13,13 +13,13 @@ import AdminPanel from './pages/Adminpanel';
 import AgregarPlan from './pages/AgregarPlan';
 import AgregarProducto from './pages/AgregarProducto';
 import AgregarUsuario from './pages/AgregarUsuario';
-
-
+import ProductosFarmacia from './pages/Productos-Farmacia';
+import ProductosGatos from './pages/ProductosGatos';
 function App() {
   return (
     <Router>
           <Routes>
-            <Route path="/" element={<Menu />} />
+            <Route path="/Menu" element={<Menu />} />
             <Route path="/login" element={<Login />} />
             <Route path="/register" element={<Register />} />
             <Route path="/Plan" element={<Showplans />} />
@@ -31,7 +31,9 @@ function App() {
             <Route path="/FinalizarCompra" element={<FinalizarCompra />} />
             <Route path="/agendar" element={<AgendarCita />} />
             <Route path="/DetallesPlan/:id" element={<DetailPlan />} />
-            <Route path="/" element={<AdminPanel />} />
+            <Route path="/productos-farmacia" element={<ProductosFarmacia/>} />
+            <Route path="/ProductosGatos" element={<ProductosGatos/>} />
+            <Route path="/Adminpanel" element={<AdminPanel />} />
           </Routes>
     </Router>
   )

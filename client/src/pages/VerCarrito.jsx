@@ -160,7 +160,7 @@ const VerCarrito = () => {
 
       {/* VOLVER AL MENÚ */}
       <div className="d-flex justify-content-center mt-5">
-        <Link to="/">
+        <Link to="/Menu">
           <Button variant="secondary" className="rounded-pill px-4">
             ← Volver al menú principal
           </Button>

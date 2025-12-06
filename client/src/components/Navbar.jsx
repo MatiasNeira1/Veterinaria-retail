@@ -1,4 +1,3 @@
-// src/components/CustomNavbar.jsx
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import {
@@ -17,10 +16,10 @@ export default function CustomNavbar() {
 
   return (
     <header  className="fixed-top w-100" style={{ zIndex: 1030 }}>
-      {/* === Banda superior verde (logo + buscador + cuenta/carrito) === */}
+      
       <div
         style={{
-          background: "#0c3b0e", // verde oscuro tipo referencia
+          background: "#0c3b0e", 
           color: "#fff",
           width: "100vw",
           marginLeft: "calc(50% - 50vw)",
@@ -30,7 +29,7 @@ export default function CustomNavbar() {
       >
         <Container fluid="lg" className="px-3">
           <Navbar expand="lg" bg="transparent" variant="dark" expanded={expanded}>
-            <Navbar.Brand as={Link} to="/" className="me-3">
+            <Navbar.Brand as={Link} to="/Menu" className="me-3">
               <div className="fw-bold" style={{ fontSize: "1.8rem", lineHeight: 1 }}>
                 Cachupin
               </div>
@@ -42,7 +41,6 @@ export default function CustomNavbar() {
               onClick={() => setExpanded((e) => !e)}
             />
             <Navbar.Collapse id="nav-top">
-              {/* Buscador grande al centro (se expande y rellena el ancho) */}
               <Form
                 role="search"
                 onSubmit={(e) => e.preventDefault()}
@@ -57,7 +55,6 @@ export default function CustomNavbar() {
                 <Button variant="success">🔎 Buscar</Button>
               </Form>
 
-              {/* Atajos: Mi Cuenta / Carrito */}
               <Nav className="ms-lg-3 align-items-center">
                 <Nav.Link as={Link} to="/login" className="text-white">
                   <span style={{ fontSize: 20, marginRight: 6 }}>👤</span>
@@ -81,7 +78,7 @@ export default function CustomNavbar() {
         </Container>
       </div>
 
-      {/* === Barra blanca de navegación (categorías) === */}
+      
       <div
         className="bg-white border-bottom"
         style={{
@@ -98,13 +95,13 @@ export default function CustomNavbar() {
             <Nav.Link as={Link} to="/productos?cat=perro" className="text-dark fw-semibold">
               MUNDO PERRO ▾
             </Nav.Link>
-            <Nav.Link as={Link} to="/productos?cat=gato" className="text-dark fw-semibold">
+            <Nav.Link as={Link} to="/ProductosGatos" className="text-dark fw-semibold">
               MUNDO GATO ▾
             </Nav.Link>
             <Nav.Link as={Link} to="/productos?cat=accesorios" className="text-dark fw-semibold">
               ACCESORIOS ▾
             </Nav.Link>
-            <Nav.Link as={Link} to="/productos?cat=farmacia" className="text-dark fw-semibold">
+            <Nav.Link as={Link} to="/Productos-Farmacia" className="text-dark fw-semibold">
               FARMACIA ▾
             </Nav.Link>
             <Nav.Link as={Link} to="/Plan" className="text-dark fw-semibold">
@@ -117,5 +114,6 @@ export default function CustomNavbar() {
         </Container>
       </div>
     </header>
+    
   );
 }

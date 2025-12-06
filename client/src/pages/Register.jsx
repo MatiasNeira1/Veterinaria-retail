@@ -1,6 +1,7 @@
 import React, { useState } from "react";
-import { Form, Button, Container, Row, Col, Card } from "react-bootstrap";
+import { Form, Button, Container, Card } from "react-bootstrap";
 import { useNavigate } from "react-router-dom";
+import api from "../api/api"
 
 const Register = () => {
   const navigate = useNavigate();
@@ -8,40 +9,68 @@ const Register = () => {
   const [telefono, setTelefono] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [loading, setLoading] = useState(false);
 
-  const userRegister = (e) => {
+  const userRegister = async (e) => {
     e.preventDefault();
+    setLoading(true);
 
-    const newUser = { name, telefono, email, password };
-    const storedUsers = JSON.parse(localStorage.getItem("users")) || [];
-    storedUsers.push(newUser);
-    localStorage.setItem("users", JSON.stringify(storedUsers));
+    if (password.length < 6) {
+    alert("La contraseña debe tener al menos 6 caracteres.");
+    setLoading(false);
+    return;
+  }
 
-    setName("");
-    setTelefono("");
-    setEmail("");
-    setPassword("");
+    try {
+      // envio de datos al backend
+      const payload = {
+        nombre: name,      
+        telefono: telefono,
+        correo: email,      
+        password: password,
+      };
+      //con esto tengo que escribir la url y enviar la constante con los datos registrados en el formulario
+      const res = await api.post("/auth/register", payload);
 
-    if (Notification.permission === "granted") {
-      new Notification("Se ha creado el usuario");
-    } else if (Notification.permission !== "denied") {
-      Notification.requestPermission().then((permission) => {
-        if (permission === "granted") {
-          new Notification("Se ha creado el usuario");
-        }
-      });
-    }
+      
+      setName("");
+      setTelefono("");
+      setEmail("");
+      setPassword("");
 
-    setTimeout(() => {
+      // notificacion
+      if (Notification.permission === "granted") {
+        new Notification("Se ha creado el usuario");
+      } else if (Notification.permission !== "denied") {
+        Notification.requestPermission().then((permission) => {
+          if (permission === "granted") {
+            new Notification("Se ha creado el usuario");
+          }
+        });
+      }
+
+      // login
       navigate("/login");
-    }, 0);
+    } catch (error) {
+      console.error("Error al registrar usuario:", error);
+      const msg =
+        error.response?.data || "Ocurrió un error al registrar el usuario";
+      alert(msg);
+    } finally {
+      setLoading(false);
+    }
   };
 
   return (
     <Container className="d-flex justify-content-center align-items-center vh-100">
-      <Card className="p-4 shadow-lg" style={{ maxWidth: "500px", width: "100%", borderRadius: "15px" }}>
+      <Card
+        className="p-4 shadow-lg"
+        style={{ maxWidth: "500px", width: "100%", borderRadius: "15px" }}
+      >
         <Card.Body>
-          <h2 className="text-center mb-4 fw-bold text-success">Crear Cuenta</h2>
+          <h2 className="text-center mb-4 fw-bold text-success">
+            Crear Cuenta
+          </h2>
 
           <Form onSubmit={userRegister}>
             <Form.Group className="mb-3" controlId="formName">
@@ -92,13 +121,22 @@ const Register = () => {
               />
             </Form.Group>
 
-            <Button type="submit" variant="success" className="w-100 rounded-pill py-2 fw-bold">
-              Registrarse
+            <Button
+              type="submit"
+              variant="success"
+              className="w-100 rounded-pill py-2 fw-bold"
+              disabled={loading}
+            >
+              {loading ? "Registrando..." : "Registrarse"}
             </Button>
           </Form>
 
           <div className="text-center mt-3">
-            <Button variant="link" onClick={() => navigate("/login")} className="text-decoration-none">
+            <Button
+              variant="link"
+              onClick={() => navigate("/login")}
+              className="text-decoration-none"
+            >
               ¿Ya tienes cuenta? Inicia sesión
             </Button>
           </div>

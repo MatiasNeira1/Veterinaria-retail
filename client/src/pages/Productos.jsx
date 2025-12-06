@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import {
-  Navbar,
+ 
   Container,
   Form,
   Button,
@@ -12,16 +12,37 @@ import {
   Toast,
   ToastContainer,
 } from "react-bootstrap";
+import Navbar from "../components/Navbar";
+import api from "../api/api"; 
 
+// Imágenes locales
 import CorreaGato from "/img/CorreaGato.jpg";
 import ComidaGato from "/img/ComidaGato.webp";
 import JugueteGato from "/img/JugueteGato.webp";
 import CajaArenaGato from "/img/CajaArenaGato.webp";
 
+// Función para elegir una imagen según el nombre del producto
+const getImagenProducto = (nombre = "") => {
+  const n = nombre.toLowerCase();
+
+  if (n.includes("correa")) return CorreaGato;
+  if (n.includes("comida") || n.includes("alimento")) return ComidaGato;
+  if (n.includes("arena") || n.includes("caja")) return CajaArenaGato;
+  if (n.includes("juguete")) return JugueteGato;
+
+  // Por defecto
+  return ComidaGato;
+};
+
 const Productos = () => {
   const [carrito, setCarrito] = useState([]);
   const [mostrarToast, setMostrarToast] = useState(false);
   const [productoAgregado, setProductoAgregado] = useState("");
+
+  // 👉 productos que vienen del BACK
+  const [productos, setProductos] = useState([]);
+  const [cargando, setCargando] = useState(true);
+  const [errorCarga, setErrorCarga] = useState("");
 
   // Cargar carrito desde localStorage
   useEffect(() => {
@@ -29,17 +50,33 @@ const Productos = () => {
     setCarrito(carritoGuardado);
   }, []);
 
-  // Lista de productos
-  const productos = [
-    { src: CorreaGato, alt: "Correa Gato", nombre: "Correa para gato", precio: 5990 },
-    { src: ComidaGato, alt: "Comida Gato", nombre: "Comida húmeda", precio: 10990 },
-    { src: CajaArenaGato, alt: "Caja Arena Gato", nombre: "Caja de arena para gato", precio: 20990 },
-    { src: JugueteGato, alt: "Juguete Gato", nombre: "Juguete interactivo", precio: 12990 },
-  ];
+  // 🔹 Cargar productos desde el backend al montar el componente
+  useEffect(() => {
+    const fetchProductos = async () => {
+      try {
+        const res = await api.get("/products/all"); 
+        setProductos(res.data);
+      } catch (err) {
+        console.error("Error cargando productos:", err);
+        setErrorCarga("No se pudieron cargar los productos. Intenta más tarde.");
+      } finally {
+        setCargando(false);
+      }
+    };
+
+    fetchProductos();
+  }, []);
 
   // Añadir producto al carrito
   const añadirAlCarrito = (producto) => {
-    const nuevoCarrito = [...carrito, producto];
+    const itemCarrito = {
+      id: producto.idProducto ?? producto.id, // por si tu entidad se llama distinto
+      nombre: producto.nombre,
+      precio: producto.precio,
+      src: getImagenProducto(producto.nombre),
+    };
+
+    const nuevoCarrito = [...carrito, itemCarrito];
     setCarrito(nuevoCarrito);
     localStorage.setItem("carrito", JSON.stringify(nuevoCarrito));
 
@@ -48,85 +85,30 @@ const Productos = () => {
   };
 
   return (
-    <>
-      {/* NAVBAR VERDE */}
-      <Navbar
-        expand="lg"
-        sticky="top"
-        className="shadow-sm mb-4"
-        style={{
-          backgroundColor: "#0b6b21ff", // Verde Bootstrap
-          marginLeft: "calc(50% - 50vw)",
-          marginRight: "calc(50% - 50vw)",
-        }}
-      >
-        <Container fluid>
-          <Navbar.Brand
-            as={Link}
-            to="/"
-            className="fw-bold fs-3"
+    <>  
+      <Navbar>
             
-            style={{ color: "white" }}
-          >
-            🐾 Cachupin
-          </Navbar.Brand>
-
-          {/* Buscador */}
-          <Form
-            className="d-flex mx-auto"
-            role="search"
-            style={{ maxWidth: 400 }}
-            onSubmit={(e) => e.preventDefault()}
-          >
-            <Form.Control
-              type="text"
-              name="q"
-              placeholder="Buscar en cachupin.com"
-              className="me-2 rounded-pill"
-            />
-            <Button
-              variant="light"
-              className="rounded-pill"
-              style={{ color: "#28a745", fontWeight: "600" }}
-            >
-              Buscar
-            </Button>
-          </Form>
-
-          {/* Carrito */}
-          <Link to="/vercarrito">
-            <Button
-              variant="light"
-              className="position-relative rounded-pill"
-              style={{ color: "#0a7a25ff", fontWeight: "600" }}
-            >
-              🛒
-              {carrito.length > 0 && (
-                <Badge
-                  bg="danger"
-                  pill
-                  className="position-absolute top-0 start-100 translate-middle"
-                >
-                  {carrito.length}
-                </Badge>
-              )}
-            </Button>
-          </Link>
-        </Container>
       </Navbar>
 
       {/* TÍTULO */}
       <Container className="text-center mb-4">
         <h1 className="fw-bold text-dark">Productos para tu mascota</h1>
-        <p className="text-muted">Explora los mejores productos para tu mejor amigo</p>
+        <p className="text-muted">
+          Explora los mejores productos para tu mejor amigo
+        </p>
       </Container>
 
       {/* GRID DE PRODUCTOS */}
       <Container>
+        {cargando && <p className="text-center">Cargando productos...</p>}
+        {errorCarga && (
+          <p className="text-center text-danger">{errorCarga}</p>
+        )}
+
         <Row className="justify-content-center">
-          {productos.map((producto, index) => (
+          {productos.map((producto) => (
             <Col
-              key={index}
+              key={producto.idProducto ?? producto.id}
               xs={12}
               sm={6}
               md={4}
@@ -139,14 +121,14 @@ const Productos = () => {
                   border: "none",
                   borderRadius: "15px",
                   overflow: "hidden",
-                  backgroundColor: "#f8f9fa", 
+                  backgroundColor: "#f8f9fa",
                   boxShadow: "0 4px 15px rgba(0,0,0,0.15)",
                   transition: "all 0.3s ease",
                 }}
                 onMouseEnter={(e) => {
                   e.currentTarget.style.transform = "scale(1.05)";
                   e.currentTarget.style.boxShadow =
-                    "0 10px 25px rgba(0, 0, 0, 0.35)"; 
+                    "0 10px 25px rgba(0, 0, 0, 0.35)";
                   e.currentTarget.style.backgroundColor = "#e4e2e2ad";
                 }}
                 onMouseLeave={(e) => {
@@ -158,8 +140,8 @@ const Productos = () => {
               >
                 <Card.Img
                   variant="top"
-                  src={producto.src}
-                  alt={producto.alt}
+                  src={getImagenProducto(producto.nombre)}
+                  alt={producto.nombre}
                   style={{
                     height: "220px",
                     objectFit: "cover",
@@ -173,7 +155,7 @@ const Productos = () => {
                     className="fw-bold fs-5"
                     style={{ color: "#28a745" }}
                   >
-                    ${producto.precio.toLocaleString()}
+                    ${producto.precio?.toLocaleString() ?? "0"}
                   </Card.Text>
                   <Button
                     variant="success"
@@ -208,4 +190,3 @@ const Productos = () => {
 };
 
 export default Productos;
- 

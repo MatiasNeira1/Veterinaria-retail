@@ -17,7 +17,7 @@ import Footer from "../components/Footer";
 
 import CardProduct from "../components/CardProduct";
 import comidas from "../data/comidaperros.json";
-
+import Categorias from "../components/CategoriasHome.jsx";
 
 
 
@@ -33,7 +33,7 @@ export default function Menu() {
       </Banner>
 
       
-        <Container className="py-5">
+        {/*banner <Container className="py-5">
           <h1 className="fw-bold mb-4 text-start">Ofertas exclusivas!</h1>
           <Row lg={4} className="g-5">
             {comidas.map((comida) => (
@@ -46,8 +46,11 @@ export default function Menu() {
                 />
               </Col>
             ))}
+            
     </Row>
-  </Container>
+    
+  </Container>*/}
+  <Categorias />
     <Footer /> 
     </>
   );
